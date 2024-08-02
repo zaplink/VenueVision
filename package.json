@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . my-electron-app --platform=win32 --arch=x64 --out=dist --overwrite"
+
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/zaplink/VenueVision#readme",
   "devDependencies": {
     "electron": "^31.3.1",
+    "electron-packager": "^17.1.2",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

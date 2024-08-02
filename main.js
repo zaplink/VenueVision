@@ -2,10 +2,12 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-// Enable live reload for all the files inside your project directory
-require('electron-reload')(__dirname, {
-  electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-});
+// Only include electron-reload in development mode
+if (process.env.NODE_ENV === 'development') {
+  require('electron-reload')(__dirname, {
+    electron: require(`${__dirname}/node_modules/electron`)
+  });
+}
 
 function createWindow() {
   // Create the browser window.
