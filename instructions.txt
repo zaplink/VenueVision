@@ -1,0 +1,10 @@
+// Install dependencies
+    npm install
+
+// Run software
+    npm start
+
+// Build software packages
+    Windows : npx electron-builder --win nsis
+    Fedora : npx electron-builder --linux rpm
+
