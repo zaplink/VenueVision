@@ -1,5 +1,5 @@
 // Packages
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, screen } = require('electron');
 const path = require('path');
 
 // Only include electron-reload in development mode
@@ -10,10 +10,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function createWindow() {
+  // Get the primary display size
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false // Needed for using Electron's require in the renderer process
@@ -21,7 +24,7 @@ function createWindow() {
   });
 
   // Load the index.html file.
-  win.loadFile('index.html');
+  win.loadFile('./src/index.html');
 }
 
 // This method will be called when Electron has finished initialization.
